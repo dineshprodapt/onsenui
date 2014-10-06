@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="my-app">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="onsenui.css"/>
+    <link rel="stylesheet" href="onsen-css-components.css"/>
+    <script src="angular.js"></script>
+    <script src="onsenui.js"></script>
+    <script>
+      var module = angular.module('my-app', ['onsen']);
+      module.controller('AppController', function($scope) { });
+      module.controller('PageController', function($scope) {
+        ons.ready(function() {
+          // Init code here
+        });
+      });
+    </script>
+  </head>
+  <body ng-controller="AppController">
+
+        <!-- Page content -->
+		
+
+<ons-navigator title="Navigator" var="myNavigator">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Simple Navigation</div>
+    </ons-toolbar>
+    <div style="text-align: center">
+      <br>
+      <ons-button modifier="light" onclick="myNavigator.pushPage('page1.html', { animation : 'slide' } )">
+        Push Page
+      </ons-button>
+    </div>
+  </ons-page>
+</ons-navigator>
+
+<ons-template id="page1.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left"><ons-back-button>Back</ons-back-button></div>
+      <div class="center">Page 2</div>
+    </ons-toolbar>
+
+    <div style="text-align: center">
+      <br />
+      <ons-button modifier="light" onclick="myNavigator.popPage()">
+        Pop Page
+      </ons-button>
+    </div>
+  </ons-page>
+</ons-template>
+
+  </body>
+</html>
